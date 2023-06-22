@@ -17,8 +17,8 @@ function onChange() {
       :key="emoji"
     ) {{ emoji }}
   .text-center.leading-8 Your vote ?
-  .rating.flex-row-reverse.justify-center.items-center(@change="onChange")
-    input.mask.mask-star-2.w-10.h-10(
+  .rating.justify-center.items-center(@change="onChange")
+    input.mask.mask-star-2.bg-green-500.w-10.h-10(
       v-for="item in 5"
       type="radio"
       name="rating"
