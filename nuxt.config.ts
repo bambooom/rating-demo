@@ -7,5 +7,7 @@ export default defineNuxtConfig({
     '~/assets/css/main.css',
   ],
   postcss,
-  devtools: { enabled: true }
+  devtools: {
+    enabled: false
+  }
 })
