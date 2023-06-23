@@ -78,3 +78,7 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 ## Directory
 
 `server` includes logic about database
+
+## upstash.com
+
+free plan has 10k commands daily for redis, much more than vercel
