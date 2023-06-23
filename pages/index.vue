@@ -1,9 +1,13 @@
 <script setup lang="ts">
-const emojis = ['🤩', '🥳', '😐', '🙁', '🙄', '🤬'];
+const emojis = ['🤔', '🤬', '👎', '😐', '👍', '🤩' ];
 const emojiWrapper = ref<HTMLDivElement>();
 const myRate = ref<number>(0);
-function onChange() {
-
+function onChange():void {
+  if (!emojiWrapper.value) return;
+  emojiWrapper.value.scrollTo({
+    top: myRate.value * emojiWrapper.value.clientHeight,
+    behavior: 'smooth',
+  })
 }
 </script>
 
@@ -17,13 +21,13 @@ function onChange() {
       :key="emoji"
     ) {{ emoji }}
   .text-center.leading-8 Your vote ?
-  .rating.justify-center.items-center(@change="onChange")
-    input.mask.mask-star-2.bg-green-500.w-10.h-10(
+  .rating.flex-row-reverse.justify-center.items-center(@change="onChange")
+    input.mask.mask-star-2.w-10.h-10(
       v-for="item in 5"
       type="radio"
       name="rating"
       :key="item"
-      :class="{active: item === myRate}"
+      :class="{active: 6 - item === myRate}"
       :value="6 - item"
       v-model="myRate"
     )
