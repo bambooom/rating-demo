@@ -1,6 +1,18 @@
 <script setup lang="ts">
+const route = useRoute();
+const path = route.path;
 const emojis = ['🤔', '🤬', '👎', '😐', '👍', '🤩' ];
 const emojiWrapper = ref<HTMLDivElement>();
+
+const { data: rateData, pending } = await useFetch('/api/rate', {
+  query: {
+    uid: path,
+  },
+  default() {
+    return { r1: 0, r2: 0, r3: 0, r4: 0, r5: 0 };
+  }
+});
+
 const myRate = ref<number>(0);
 function onChange():void {
   if (!emojiWrapper.value) return;
