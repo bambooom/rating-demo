@@ -1,5 +1,5 @@
 // record count for each star rating
-export interface RateData {
+export type RateData = {
   r1: number,
   r2: number,
   r3: number,
@@ -7,8 +7,14 @@ export interface RateData {
   r5: number,
 }
 
-export interface CurrentRate {
+export type CurrentRate = {
   rate: number,
   total: number;
   rounded: number;
+}
+
+export type RankItem = RateData & {
+  uid: string;
+  voted: number;
+  avg: number;
 }
